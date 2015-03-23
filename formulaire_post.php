@@ -11,15 +11,19 @@ $telephone = $_POST['telephone'];
 $adresse = $_POST['adresse'];
 $mdp = $_POST['mdp'];
 if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
-	if(empty($nom) || empty($prenom) || empty($mail) || empty($telephone) || empty($adresse) || empty($mdp)){
+	$reponse = $bdd->prepare('SELECT email FROM member where email=?');
+	$reponse->execute(array($mail));
+	$reponse1 = $reponse->fetch();
+	if(empty($reponse1)){
+		if(empty($nom) || empty($prenom) || empty($mail) || empty($telephone) || empty($adresse) || empty($mdp)){
 		header('Location: formulaire.php');
-	}
-	else{
-	$bdd->exec("INSERT INTO member VALUES( '', '$nom', '$prenom', '$mail', '$telephone', '$adresse', '$mdp', '', '')");
-	header('Location: site.php');
-	}
+		}
+		else{		
+		$password=password_hash($mdp, PASSWORD_DEFAULT);	
+		$bdd->exec("INSERT INTO member VALUES( '', '$nom', '$prenom', '$mail', '$telephone', '$adresse', '$password', '', '')");
+		header('Location: site.php');
+		}
+	}else{echo 'mail deja utilisé';}
 }else{header('Location: formulaire.php');}
-
-
 
 ?>

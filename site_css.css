@@ -23,8 +23,7 @@ header
 {
 	color : yellow;
 	text-align : left;
-	background :url('image/fruits.jpg');
-	background-repeat: no-repeat;
+	background :url('image/fruits.jpg');	
 	background-position : top;
 	padding : 50px;
 	margin : 0px 0px 10px 0px;
@@ -55,7 +54,7 @@ footer{
 	text-align : left;
 }
 aside{
-	text-align : right;
+	text-align : left;
 }
 .tete{
 	float : right;

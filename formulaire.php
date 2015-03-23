@@ -15,9 +15,10 @@
 		
 		<nav>
 		<p class="pages">
-		<a href="achat.html" title="Pour ouvrir la page achat" class="achat" >Achat</a>
-		<a href="vente.html" class="vente">Vente</a>
-		<a href="echange.html" class="echange">Echange</a><br/>
+		<a href="achat.php" title="Pour ouvrir la page achat" class="achat" >Achat</a>
+		<a href="vente.php" class="vente">Vente</a>
+		<a href="echange.php" class="echange">Echange</a><br/>
+		<a href="site.php" class="menu">Menu</a><br/>
 		</p>	
 		</nav>
 	
